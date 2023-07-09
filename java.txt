@@ -1,0 +1,614 @@
+1.Write a program to print hello world.
+-->
+public class hello{
+    public static void main(String[] args) {
+        System.out.println("Hello ! World");
+    }
+}
+
+############################################################################
+2.perform arithmetic operation using method.
+-->
+public class arthematicop {
+    void arthematic_op(){
+        float a=56,b=28;
+        System.out.println(a+b);
+        System.out.println(a*b);
+        System.out.println(a-b);
+        System.out.println(a/b);
+    }
+    public static void main(String[] args) {
+        arthematicop obj=new arthematicop();
+        obj.arthematic_op();
+    }
+}
+############################################################################
+3.perform arithmetic operation without method.
+-->
+public class airthematic {
+    public static void main(String[] args) {
+        float a=10,b=15;
+        System.out.println(a+b);
+        System.out.println(a-b);
+        System.out.println(a*b);
+        System.out.println(a/b);
+    }
+}
+############################################################################
+4.calculate area of a circle with given radious.
+-->
+class Area{
+    void area_cir(float r){
+        double area=3.14*r*r;
+        System.out.println(area);
+    }
+}
+public class area_cir {
+    public static void main(String[] args) {
+        Area obj=new Area();
+        obj.area_cir(5.6f);
+    }
+}
+############################################################################
+5.prime number
+-->
+import java.util.*;
+class Number{
+    void num(){
+        int flag=0;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number");
+        int n=sc.nextInt();
+        for(int i=2;i<n;i++){
+            if(n%2==0){
+                flag=1;
+                break;
+            }
+        }
+        if(n==1){
+            System.out.println("Number is not prime number");
+        }
+        else if(flag==1){
+            System.out.println("Number is not prime number");
+        }
+        else{
+            System.out.println("Number is prime number");
+        }
+        sc.close();
+    }
+}
+public class Prime {
+    public static void main(String[] args) {
+        Number obj=new Number();
+        obj.num();
+    }
+}
+############################################################################
+6.Area of circle and square using method overloading.
+-->
+import java.util.Scanner;
+class overloading_2{
+    void area(int a){
+        int area=a*a;
+        System.out.println("Area of square = "+area);
+    }
+    void area(float r){
+        double area=3.14*r*r;
+        System.out.println("Area of circle = "+area);
+    }
+}
+public class air_cir_sq_methodoverloading {
+    public static void main(String[] args) {
+        overloading_2 obj=new overloading_2();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter side of square");
+        int l=sc.nextInt();
+        System.out.println("Enter radius of circle");
+        float r=sc.nextFloat();
+        obj.area(r);
+        obj.area(l);
+    }
+}
+############################################################################
+7.Area of circle and rectangle using method overloading.
+-->
+import java.util.*;
+class overloarding_1{
+    void area(int l,int w){
+        int area=l*w;
+        System.out.println("Area of rectangle = "+area);
+    }
+    void area(int r){
+        double area=3.14*r*r;
+        System.out.println("Area of circle = "+area);
+    }
+}
+public class ar_cir_rec_methodoverloading {
+    public static void main(String [] args){
+        overloarding_1 obj=new overloarding_1();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter length and width of rectangle");
+        int l=sc.nextInt();
+        int w=sc.nextInt();
+        System.out.println("Enter radius of circle");
+        int r=sc.nextInt();
+        obj.area(r);
+        obj.area(l, w);
+    }
+}
+############################################################################
+8.example of parameterized and non parameterized constructor.
+-->
+import java.util.*;
+class cons{
+    cons(){
+        System.out.println("You are in parameterized constructor");
+    }
+    cons(int a){
+        System.out.println("You are in parameterized constructor");
+        System.out.println("Square of the number is "+(a*a));
+    }
+}
+public class par_non_par_cons {
+    public static void main(String[] args) {
+        cons c=new cons();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number");
+        int num=sc.nextInt();
+        cons c1=new cons(num);
+    }
+}
+############################################################################
+9.Bank system.
+-->
+import java.util.*;
+class Bank{
+    private String name;
+    private int id,balance;
+    Bank(String usname,int idno,int bal){
+        name=usname;
+        id=idno;
+        balance=bal;
+    }
+    void withdraw(int amo){
+        System.out.println("Hi "+name+" you'r Available balance is "+balance);
+        balance-=amo;
+        System.out.println(amo+ " withdrawan from your account number "+id+ " "+"Remaining balance is "+balance);
+    }
+    void deposit(int amo){
+        System.out.println("Hi "+name+" you'r Available balance is "+balance);
+        balance+=amo;
+        System.out.println(amo+ " deposited in your account number "+id+ " "+"Remaining balance is "+balance);
+    }
+}
+public class Bank_ac {
+    public static void main(String[] args) {
+        Bank b=new Bank("Sudip",3609637,10236);
+        int amo;
+        Scanner sc=new Scanner(System.in);
+        while(true){
+            System.out.println("Enter 1:for deposit\n Enter 2:for withraw\n Enter 3:for exit\n");
+            int ch=sc.nextInt();
+            switch (ch) {
+                case 1:System.out.println("Enter amount which you want to deposit");
+                    amo=sc.nextInt();
+                    b.deposit(amo);
+                    break;
+                case 2:System.out.println("Enter amount which you want to withdraw");
+                    amo=sc.nextInt();
+                    b.withdraw(amo);
+                    break;
+                case 3:System.out.println("You exit from server");
+                System.exit(0);
+                default:System.out.println("Wrong choice");
+                    break;
+            }
+        }
+    }
+}
+############################################################################
+10.Example of single inheritance.
+-->
+import java.util.*;
+class Floor{
+    int len,wid;
+    Floor(int l,int w){
+        len=l;
+        wid=w;
+    }
+    int area(){
+        return len*wid;
+    }
+}
+class Room extends Floor{
+    int hei;
+    Room(int l,int w,int h){
+        super(l,w);
+        hei=h;
+    }
+    int volume(){
+        return len*wid*hei;
+    }
+}
+public class sing_inher {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int l,w,h;
+        System.out.println("Enter length , width and height");
+        l=sc.nextInt();
+        w=sc.nextInt();
+        h=sc.nextInt();
+        Room v=new Room(l,w,h);
+        System.out.println("Area of the room is = "+v.area());
+        System.out.println("Volume of the room is = "+v.volume());
+    }
+}
+############################################################################
+11.Multilevel inheritance.
+-->
+class A{
+    void display_a(){
+        System.out.println("This is class a method");
+    }
+}
+class B extends A{
+    void display_b(){
+        System.out.println("This is class b method");
+    }
+}
+class C extends B{
+    void display_c(){
+        System.out.println("This is class c method");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		C obj = new C();
+		obj.display_a();
+		obj.display_b();
+		obj.display_c();
+	}
+}
+############################################################################
+12.String methods.
+-->
+public class Assignment13 {
+    static void stringMethods(){
+        String str = "I am student of Brainware University";
+        String sen = "i am student of brainware university";
+        System.out.println(str.toLowerCase());
+        System.out.println(str.toUpperCase());
+        System.out.println(str.trim());
+        System.out.println(str.replace('a','o'));
+        System.out.println( str.equals(sen));
+        System.out.println( str.equalsIgnoreCase(sen));
+        System.out.println( str.length());
+        System.out.println( str.charAt(16));
+        String str5  = str.concat(sen);
+        System.out.println(str.substring(5,22));
+        System.out.println(str.substring(22));
+        System.out.println(str.indexOf('y'));
+        System.out.println(str.compareTo(sen));
+    }
+    public static void main(String[] args) {
+        stringMethods();
+    }
+}
+############################################################################
+13.string buffer methods.
+-->
+public class Assignment13 {
+    static void stringBufferMethods(){
+        StringBuffer str = new StringBuffer();
+
+        str.append("I am a student of ");
+        str.append("Brainware University ");
+        String str1 = str.toString();
+        System.out.println(str1);
+
+        str.insert(39,"and i am placed");
+        String str2 = str.toString();
+        System.out.println(str2);
+
+        str.setLength(60);
+        str.setCharAt(5,'m');
+        String str3 = str.toString();
+        System.out.println(str3);
+    }
+    public static void main(String[] args) {
+        stringBufferMethods();
+    }
+}
+############################################################################
+14.Hierarchical inheritance.
+-->
+class Employee{
+    String name,adress;
+    Employee(String n,String add){
+        name=n;
+        adress=add;
+    }
+}
+class Teacher extends Employee{
+    String dpt,c_name;
+    Teacher(String name,String address,String dept,String cour){
+        super(name, address);
+        dpt=dept;
+        c_name=cour;
+    }
+    void display(){
+        System.out.println("Teacher name "+name+" department from "+dpt+" taught "+c_name+" and adress is "+adress);
+    }
+}
+class Office_Staff extends Employee{
+    int staff_no;
+    Office_Staff(String name,String add,int no){
+        super(name, add);
+        staff_no=no;
+    }
+    void print(){
+        System.out.println("Staff name is "+name+" Staff no is "+staff_no+" and adress is "+adress);
+    }
+}
+public class mul_inher{
+    public static void main(String[] args) {
+        Teacher obj=new Teacher("R.p.", "Saltlake 70001", "CSE", "OOps");
+        obj.display();
+        Office_Staff obj1=new Office_Staff("RAban", "Barasat.chapadali,North_24-pargana", 8937);
+        obj1.print();
+    }
+}
+############################################################################
+15.Method overriding.
+-->
+class Teacher_{
+    void taught_oop(){
+        System.out.println("Techer taught object oriented programming in section A");
+    }
+}
+class Student extends Teacher_{
+    @Override
+    void taught_oop(){
+        System.out.println("Student learn opps from Ritesh");
+    }
+}
+public class Over_ride {
+    public static void main(String[] args) {
+        Student ob9=new Student();
+        ob9.taught_oop();
+    }
+}
+############################################################################
+16.Abstract class.
+-->
+abstract class Abst{
+    Abst(){
+        System.out.println("You are in base class constructor");
+    }
+    abstract void display();
+    void show(){
+        System.out.println("Non-abs method called");
+    }
+}
+class Der extends Abst{
+    void display(){
+        System.out.println("Abs method implemented");
+    }
+}
+public class abs {
+    public static void main(String[] args) {
+        Der d=new Der();
+        d.show();
+        d.display();
+    }
+}
+############################################################################
+17.claculate area and perimeter of rectangle using interface.
+-->
+import java.util.*;
+interface Rect{
+    void area();
+    void perimeter();
+}
+class Calculate implements Rect{
+    Scanner sc=new Scanner(System.in);
+    int l,w;
+    void take(){
+        System.out.println("Enter length and width of rectangle");
+        l=sc.nextInt();
+        w=sc.nextInt();
+    }
+    public void area(){
+        System.out.println("Area of rectangle = "+(l*w));
+    }
+    public void perimeter(){
+        System.out.println("Perimeter of rectangle = "+(2*(l+w)));
+    }
+}
+public class ar_per_int {
+    public static void main(String[] args) {
+        Calculate cal=new Calculate();
+        cal.take();
+        cal.area();
+        cal.perimeter();
+    }
+}
+############################################################################
+18.Vector.
+-->
+import java.util.*;
+public class vec {
+    public static void main(String [] args){
+        Vector v=new Vector(3);
+        v.add("v");
+        v.add("ve");
+        v.add("vec");
+        System.out.println(v.size());
+        System.out.println(v.elementAt(0));
+
+    }
+}
+############################################################################
+19.multiple try catch and finally block.
+-->
+import java.util.*;
+class Exe2{
+    Scanner sc= new Scanner(System.in);
+    void handle2(){
+        System.out.println("Enter element in array");
+        int [] ar=new int[5];
+        try{
+            for(int i=0;i<5;i++){
+                ar[i]=sc.nextInt();
+            }
+            System.out.println("Result is ");
+            for(int i=0;i<5;i++){
+                System.out.print(ar[i]+"\t");
+            }
+            System.out.println();
+        }
+        catch(ArithmeticException e1){
+            System.out.println("Airthematic exception occured\n"+e1);
+        }
+        catch(ArrayIndexOutOfBoundsException e2){
+            System.out.println("Arrayidexoutof bound exception occured\n"+e2);
+        }
+        finally{
+            System.out.println("code is executed sucessfully");
+        }
+    }
+}
+public class try_catch_finally {
+    public static void main(String[] args) {
+        Exe2 ob=new Exe2();
+        ob.handle2();
+    }
+}
+############################################################################
+20.Working of try-catch block.
+-->
+import java.util.*;
+class Exe{
+    Scanner sc = new Scanner(System.in);
+    
+    
+    void handle(){
+        System.out.println("Enter a integer");
+        int a=sc.nextInt();
+    try{
+        double div=a/0;
+        System.out.println(div);
+    }
+    catch(Exception e)
+    {
+        System.out.println(e);
+    }
+}
+}
+public class try_catch {
+    public static void main(String[] args) {
+        Exe obj=new Exe();
+        obj.handle();
+    }
+}
+############################################################################
+21.Airthematic operation using switch case.
+-->
+import java.util.*;
+public class Sw_Ar_Op {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter two number");
+        int x=sc.nextInt();
+        int y=sc.nextInt();
+        while(true){
+            System.out.println("choose +,/,*,-");
+            String c=sc.next();
+            switch(c){
+                case "+":System.out.println("Addition of two number is "+(x+y));
+                break;
+                case "-":System.out.println("subtraction of two number is "+(x-y));
+                break;
+                case "*":System.out.println("Multiplication of two number is "+(x*y));
+                break;
+                case "/":System.out.println("Division of two number is "+(x/y));
+                break;
+                case "x":System.out.println("Programm end");
+                System.exit(0);
+                default:System.out.println("Wrong choice");
+                break;
+
+            }
+        }
+    }
+}
+############################################################################
+22.implementation of thread.
+-->
+import java.util.*;
+class Th extends Thread{
+    public void run(){
+        int i=0;
+        while(i<20){
+            System.out.println("031");
+            i+=1;
+        }
+    }
+}
+class Th1 extends Thread{
+    public void run(){
+        int i=0;
+        while(i<15){
+            System.out.println("Sudip");
+            i+=1;
+        }
+    }
+}
+public class imp_of_th {
+    public static void main(String[] args) {
+        Th t=new Th();
+        Th1 t1=new Th1();
+        t.start();
+        t1.start();
+    }
+}
+############################################################################
+23.User define Exception.
+-->
+class Myexception extends Exception{
+    Myexception(String s){
+        super(s);
+        System.out.println("Exception created");
+    }
+}
+public class us_df_ex {
+    public static void main(String[] args) {
+        int x=-12;
+        try{
+            if(x>=0){
+                System.out.println("Okay");
+            }
+            else{
+                throw new Myexception(" let see");
+            }
+        }
+        catch(Myexception e){
+            System.out.println("Exception handeled");
+            System.out.println(e.getMessage());
+        }
+    }
+}
+############################################################################
+24.Buffer reader.
+-->
+import java.io.*;
+import java.util.*;
+public class buf_rad {
+    public static void main(String[] args) throws IOException{
+        BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter your name");
+        String n=reader.readLine();
+        System.out.println("Hello! "+n);
+    }
+}
